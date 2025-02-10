@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>QuickLink - URL Shortner</title>
+        <meta name="viewport" content="width-device-width" initial-scale="1.0">
+    </head>
+    <body>
+        <header class="header">
+            <nav class="nav">
+                <div class="logo">QuickLink</div>
+                <div class="auth-buttons">
+                    <button class="submit-btn">Login</button>
+                </div>
+            </nav>
+
+        </header>
+        <main class="main">
+            <section class="url-shortener">
+                <h1 style="margin-bottom: 1.5rem; text-align: center;">Shorten Your URLs</h1>
+                <form class="url-form">
+                    <div class="input-group">
+                        <input type="url" class="url-input" placeholder="Enter your long URL here" required>
+                        <button type="submit" class="submit-btn">Shorten</button>
+                    </div>
+                </form>
+            </section>
+            <section class="features">
+                <div class="feature-card">
+                    <h2 class="feature-title">Quick Analytics</h2>
+                    <p>Track your link performance with detailed analytics including clicks, geographic data, and device info.</p>
+                </div>
+                <div class="feature-card">
+                    <h2 class="feature-title">QR Codes</h2>
+                    <p>Generate QR codes for your shortened URLs to share across print and digital media.</p>
+                </div>
+                <div class="feature-card">
+                    <h2 class="feature-title">Secure & Fast</h2>
+                    <p>Enterprise-grade security with blazing-fast redirects powered by Redis caching.</p>
+                </div>
+                <div class="feature-card">
+                    <h2 class="feature-title">Expiration & Link Management</h2>
+                    <p>Allow users to set expiration dates for links or delete them manually. This enhances security and prevents outdated links from being used indefinitely.</p>
+                </div>
+            </section>
+        </main>
+    
+        <script src="script.js"></script>
+
+    </body>
+</html>
