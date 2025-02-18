@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="style.css">
         <title>QuickLink - URL Shortner</title>
         <meta name="viewport" content="width-device-width" initial-scale="1.0">
+
     </head>
     <body>
         <header class="header">
@@ -11,6 +12,7 @@
                 <div class="logo">QuickLink</div>
                 <div class="auth-buttons">
                     <button class="submit-btn">Login</button>
+                    <button id="s-2" class="submit-btn" >Sign up</button>
                 </div>
             </nav>
 
@@ -44,8 +46,37 @@
                 </div>
             </section>
         </main>
-    
         <script src="script.js"></script>
+        <!--login modal-->
+      <!-- Login Modal -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeLoginModal()">&times;</span>
+        <h2>Login</h2>
+        <input type="email" id="login-email" placeholder="Enter your email">
+        <div></div>
+        <input type="password" id="login-password" placeholder="Enter your password">
+        <div></div>
+        <button onclick="login()">Login</button>
+    </div>
+</div>
+
+<!-- Signup Modal -->
+<div id="signupModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeSignupModal()">&times;</span>
+        <h2>Sign Up</h2>
+        <input type="text" id="signup-username" placeholder="Enter your username">
+        <div></div>
+        <input type="email" id="signup-email" placeholder="Enter your email">
+        <div></div>
+        <input type="password" id="signup-password" placeholder="Enter your password">
+        <div></div>
+        <button onclick="signup()">Sign Up</button>
+    </div>
+</div>
+    
+        
 
     </body>
 </html>

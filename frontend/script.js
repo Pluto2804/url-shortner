@@ -42,3 +42,65 @@ document.addEventListener("DOMContentLoaded",function(){
         }
     }
 })
+function openLoginModal(){
+    document.getElementById("loginModal").style.display="block";
+}
+function openSignupModal(){
+    document.getElementById("signupModal").style.display="block";
+}
+function closeLoginModal(){
+    document.getElementById("loginModal").style.display="none";
+}
+function closeSignupModal(){
+    document.getElementById("signupModal").style.display="none";
+}
+async function login(){
+    const email = document.getElementById("login-email").value;
+    const password = document.getElementById("login-password").value;
+
+    const response = await fetch("http://localhost:8080/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+    });
+    const data = await response.json();
+
+    if(response.ok){
+        alert("Login Successful!");
+        localStorage.setItem("token",data.token);
+        closeLoginModal();
+
+    }else{
+        alert("Login Failed: "+ data.error);
+    }
+}
+async function signup() {
+    const username = document.getElementById("signup-username").value;
+    const email = document.getElementById("signup-email").value;
+    const password = document.getElementById("signup-password").value;
+
+    try {
+        const response = await fetch("http://localhost:8080/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, email, password }),
+        });
+
+        const data = await response.json();
+
+        if (response.status === 409) {
+            alert("Email already registered! Try logging in.");
+        } else if (response.ok) {
+            alert("Signed Up Successfully!");
+            localStorage.setItem("token", data.token);
+            closeSignupModal();
+        } else {
+            alert("Signup Failed: " + data.error);
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Something went wrong. Please try again.");
+    }
+}
+document.querySelector(".auth-buttons .submit-btn").addEventListener("click", openLoginModal);
+document.getElementById("s-2").addEventListener("click",openSignupModal);
